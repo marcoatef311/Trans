@@ -7,14 +7,13 @@ package rmi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import javax.swing.text.Document;
+import org.bson.Document;
 
 /**
  *
@@ -24,7 +23,7 @@ public class TransportationServer {
     
     MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
     DB database = mongoClient.getDB("admin");
-    DBCollection collection = database.getCollection("AOOSE");
+    MongoCollection<Document> collection = (MongoCollection<Document>) database.getCollection("AOOSE");
         
     /**
      * @param args the command line arguments
@@ -44,8 +43,8 @@ public class TransportationServer {
     {
         Gson gson = new GsonBuilder().create();
         String json = gson.toJson(u);
-//        Document doc = Document.parse(json);
-//        collection.insertOne(doc);
+        Document doc = Document.parse(json);
+        collection.insertOne(doc);
     }
     
 }
