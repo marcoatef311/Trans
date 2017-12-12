@@ -128,7 +128,7 @@ public class TransportationClient {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Login.dispose();
+            Home.dispose();
             initLogin();
             Register.setVisible(true);
         }
