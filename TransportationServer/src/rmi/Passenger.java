@@ -12,6 +12,8 @@ import java.io.Serializable;
  * @author mac
  */
 public class Passenger extends User implements Serializable{
+    
+    private static final long serialVersionUID = -9110091352417177133L;
     int Passenger_ID;
     //ArrayList<Ride> Rides = new ArrayList<Ride>();
     int Rate;
