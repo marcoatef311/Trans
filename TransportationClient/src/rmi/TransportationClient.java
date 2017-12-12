@@ -87,6 +87,7 @@ public class TransportationClient {
     {
         PassengerFeatures = new PassengerFeatures();
         PassengerFeatures.setLocationRelativeTo(null);
+        PassengerFeatures.getViewProfileButton().addActionListener(new ViewProfileButtonListener());
     }
     
     public static void initDriverFeatures()
@@ -101,10 +102,7 @@ public class TransportationClient {
         ManagerFeatures.setLocationRelativeTo(null);
     }
     
-    
-    
-    
-    
+   
     
     
     
@@ -250,7 +248,7 @@ public class TransportationClient {
                     
                     if(u instanceof Passenger)
                     {
-                        PassengerFeatures.setUsernameLabel(u.getFullName());
+                        PassengerFeatures.setUsernameLabel(u);
                         PassengerFeatures.setVisible(true);
                     }
                     else if(u instanceof Driver)
@@ -272,4 +270,18 @@ public class TransportationClient {
         
     }
     
+    
+    
+    static class ViewProfileButtonListener implements ActionListener{
+        
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            String username = PassengerFeatures.getUsernameLabel();
+            
+            for (int i=0; i<auth.getUsersSize(); i++)
+            {
+                
+            }
+        }
+    }
 }

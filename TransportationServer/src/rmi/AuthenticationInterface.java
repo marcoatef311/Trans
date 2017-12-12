@@ -7,6 +7,7 @@ package rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,4 +20,7 @@ public interface AuthenticationInterface extends Remote{
     
     public boolean registerAsDriver(int Driver_ID, boolean Availability, int Benefit, int Rate, String Status, int User_ID, String First_Name, String Last_Name, String Address, String Phone_Number, String Email, String Country, String Username, String Password) throws RemoteException;
     
+    public int getUsersSize();
+    
+    public ArrayList getRegistered();
 }

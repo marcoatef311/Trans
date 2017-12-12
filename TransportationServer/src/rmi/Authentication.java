@@ -16,12 +16,16 @@ import rmi.User;
  */
 public class Authentication extends UnicastRemoteObject implements AuthenticationInterface{
     
-    ArrayList<User> registeredUsers;
+    public ArrayList<User> registeredUsers;
 
     public Authentication() throws RemoteException{
         registeredUsers = new ArrayList();
     }
     
+    public int getUsersSize()
+    {
+        return registeredUsers.size();
+    }
     
     @Override
     public User login(String username, String password) throws RemoteException {
@@ -65,5 +69,10 @@ public class Authentication extends UnicastRemoteObject implements Authenticatio
             }
         }
         return false;
+    }
+
+    @Override
+    public ArrayList getRegistered() {
+        return registeredUsers;
     }
 }

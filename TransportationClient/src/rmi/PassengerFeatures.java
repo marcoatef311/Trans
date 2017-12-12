@@ -136,8 +136,12 @@ public class PassengerFeatures extends javax.swing.JFrame {
         return ViewProfileButton;
     }
 
-    public void setUsernameLabel(String usernameLabel) {
-        this.usernameLabel.setText(usernameLabel);
+    public void setUsernameLabel(User u) {
+        this.usernameLabel.setText(u.getFullName());
+    }
+
+    public String getUsernameLabel() {
+        return usernameLabel.getText();
     }
 
     
